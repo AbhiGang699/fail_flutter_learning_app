@@ -23,9 +23,11 @@ class _AuthFormState extends State<AuthForm> {
 
   void _selectImage() async {
     showModalBottomSheet(
+        // shape: ShapeBorderClipper(),
         context: context,
         builder: (_) {
-          return GestureDetector(
+          return Container(
+            height: 100,
             child: Center(
               child: Center(
                 child: Row(
@@ -43,7 +45,10 @@ class _AuthFormState extends State<AuthForm> {
                         });
                         Navigator.of(context).pop();
                       },
-                      icon: Icon(Icons.camera),
+                      icon: Icon(
+                        Icons.camera,
+                        // size: 70,
+                      ),
                       label: Text('Camera'),
                     ),
                     FlatButton.icon(
@@ -58,14 +63,18 @@ class _AuthFormState extends State<AuthForm> {
                         });
                         Navigator.of(context).pop();
                       },
-                      icon: Icon(Icons.add_photo_alternate),
+                      icon: Icon(
+                        Icons.add_photo_alternate,
+                        // size: 70,
+                      ),
+                      // splashColor: Colors.red,
                       label: Text('Gallery'),
                     ),
                   ],
                 ),
               ),
             ),
-            behavior: HitTestBehavior.opaque,
+            // behavior: HitTestBehavior.opaque,
           );
         });
   }
