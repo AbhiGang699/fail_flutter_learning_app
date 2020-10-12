@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import './image_input.dart';
-import '../enums.dart';
 import 'package:image_picker/image_picker.dart';
 
 class AuthForm extends StatefulWidget {
@@ -12,7 +11,6 @@ class AuthForm extends StatefulWidget {
 
 class _AuthFormState extends State<AuthForm> {
   File _storedImage;
-  AuthMode usermode;
   bool _isLogin;
   @override
   void initState() {
@@ -142,7 +140,6 @@ class _AuthFormState extends State<AuthForm> {
                       ],
                     ),
                   ),
-                  // if()
                 ],
               ),
             ),
