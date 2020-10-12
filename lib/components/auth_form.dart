@@ -92,54 +92,56 @@ class _AuthFormState extends State<AuthForm> {
               child: Column(
                 children: [
                   Form(
-                      child: Column(
-                    children: [
-                      if (!_isLogin) UserImageInput(_selectImage, _storedImage),
-                      if (!_isLogin)
+                    child: Column(
+                      children: [
+                        if (!_isLogin)
+                          UserImageInput(_selectImage, _storedImage),
+                        if (!_isLogin)
+                          TextFormField(
+                            decoration: InputDecoration(labelText: 'Full Name'),
+                          ),
                         TextFormField(
-                          decoration: InputDecoration(labelText: 'Full Name'),
+                          decoration: InputDecoration(labelText: 'Email'),
+                          autocorrect: false,
                         ),
-                      TextFormField(
-                        decoration: InputDecoration(labelText: 'Email'),
-                        autocorrect: false,
-                      ),
-                      if (!_isLogin)
+                        if (!_isLogin)
+                          TextFormField(
+                            decoration: InputDecoration(labelText: 'Username'),
+                          ),
                         TextFormField(
-                          decoration: InputDecoration(labelText: 'Username'),
-                        ),
-                      TextFormField(
-                        decoration: InputDecoration(labelText: 'Password'),
-                        obscureText: true,
-                      ),
-                      if (!_isLogin)
-                        TextFormField(
-                          decoration:
-                              InputDecoration(labelText: 'Confirm Password'),
+                          decoration: InputDecoration(labelText: 'Password'),
                           obscureText: true,
                         ),
-                      Divider(
-                        height: 10,
-                      ),
-                      RaisedButton.icon(
-                        onPressed: () {},
-                        icon: Icon(Icons.exit_to_app),
-                        label: _isLogin ? Text('Login') : Text('SignUp'),
-                      ),
-                      Divider(
-                        height: 10,
-                      ),
-                      FlatButton(
-                        onPressed: () {
-                          setState(() {
-                            _isLogin = !_isLogin;
-                          });
-                        },
-                        child: Text(_isLogin
-                            ? 'I don\'t have an account'
-                            : 'Already have an account'),
-                      ),
-                    ],
-                  ))
+                        if (!_isLogin)
+                          TextFormField(
+                            decoration:
+                                InputDecoration(labelText: 'Confirm Password'),
+                            obscureText: true,
+                          ),
+                        Divider(
+                          height: 10,
+                        ),
+                        RaisedButton.icon(
+                          onPressed: () {},
+                          icon: Icon(Icons.exit_to_app),
+                          label: _isLogin ? Text('Login') : Text('SignUp'),
+                        ),
+                        Divider(
+                          height: 10,
+                        ),
+                        FlatButton(
+                          onPressed: () {
+                            setState(() {
+                              _isLogin = !_isLogin;
+                            });
+                          },
+                          child: Text(_isLogin
+                              ? 'I don\'t have an account'
+                              : 'Already have an account'),
+                        ),
+                      ],
+                    ),
+                  ),
                   // if()
                 ],
               ),
