@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:learning_app/components/profile.dart';
+import '../components/profile.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -29,13 +29,13 @@ class _HomeScreenState extends State<HomeScreen> {
         actions: [
           if (_index == 1)
             IconButton(
-              icon: Icon(Icons.exit_to_app_outlined),
+              icon: Icon(Icons.exit_to_app_sharp),
               onPressed: () {},
             ),
           // Text('Dubious'),
           if (_index == 0)
             IconButton(
-              icon: Icon(Icons.add),
+              icon: Icon(Icons.apps),
               onPressed: () {},
             ),
         ],
@@ -48,13 +48,13 @@ class _HomeScreenState extends State<HomeScreen> {
         type: BottomNavigationBarType.shifting,
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.article_sharp),
-            label: 'Feed',
+            icon: Icon(Icons.add),
+            title: Text("Feed"),
             backgroundColor: Colors.orange,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.contact_page_outlined),
-            label: 'Profile',
+            icon: Icon(Icons.article_sharp),
+            title: Text('Profile'),
             backgroundColor: Colors.orange,
           ),
         ],
@@ -67,6 +67,7 @@ class _HomeScreenState extends State<HomeScreen> {
         selectedItemColor: Colors.black,
         unselectedItemColor: Colors.grey,
       ),
+
     );
   }
 }
