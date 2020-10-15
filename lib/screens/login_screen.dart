@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../authentication.dart';
+import '../models/authentication.dart';
 import '../components/registerScreen.dart';
 
 class LoginPage extends StatefulWidget{
@@ -19,13 +19,13 @@ class _LoginPageState extends State<LoginPage> {
 
   bool isValid(String mail,String pass){
     bool emailValid = RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+").hasMatch(mail);
-    if(emailValid== false || pass==null)return false;
+    if(emailValid== false || pass==null )return false;
     return true;
   }
 
 
   void _register(String mail,String passwd) async{
-    if(isValid(email.text,pass.text)==false){
+    if(isValid(email.text,pass.text)==false ){
       print("Details Invalid !!");
       return;
     }
@@ -92,8 +92,7 @@ class _LoginPageState extends State<LoginPage> {
               children: [
                 Container(
                   height: _bodyHeight * 0.2,
-                  width: _bodyWidth * 0.
-                  5,
+                  width: _bodyWidth * 0.5,
 
                   child: TextField(
                     decoration: InputDecoration(

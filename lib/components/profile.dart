@@ -20,7 +20,7 @@ class _ProfileState extends State<Profile> {
             children: [
               CircleAvatar(
                 radius: 40,
-                backgroundColor: Colors.black,
+                backgroundColor: Colors.black ,
               ),
               Text(name),
             ],

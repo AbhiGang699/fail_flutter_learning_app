@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class Authentication {
@@ -21,5 +22,14 @@ class Authentication {
     assert(user!=null);
     assert(await user.getIdToken() != null);
     return user;
+  }
+  Future<bool> check(String name) async{
+    final QuerySnapshot result = await Firestore.instance
+        .collection('users')
+        .where('name', isEqualTo: name.toLowerCase())
+        .getDocuments();
+    final List<DocumentSnapshot> documents = result.documents;
+    if(documents.length > 0)return false;
+    return true;
   }
 }
