@@ -1,0 +1,25 @@
+import 'package:firebase_auth/firebase_auth.dart';
+
+class Authentication {
+  final FirebaseAuth auth = FirebaseAuth.instance;
+
+  Future<FirebaseUser> signIn(String mail,String pass) async {
+    final AuthResult authResult= await auth.signInWithEmailAndPassword(email: mail, password: pass);
+    final FirebaseUser user = authResult.user;
+
+    assert(user != null);
+    assert(await user.getIdToken() != null);
+
+    final FirebaseUser currentUser= await auth.currentUser();
+    assert(user.uid == currentUser.uid);
+    return user;
+  }
+  Future<FirebaseUser> registerUser(String mail,String pass) async {
+    final AuthResult authResult=await auth.createUserWithEmailAndPassword(email: mail, password: pass);
+    final FirebaseUser user=authResult.user;
+
+    assert(user!=null);
+    assert(await user.getIdToken() != null);
+    return user;
+  }
+}
